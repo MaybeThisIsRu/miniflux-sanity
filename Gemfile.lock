@@ -4,6 +4,7 @@ GEM
     ast (2.4.1)
     backport (1.1.2)
     benchmark (0.1.0)
+    dotenv (2.7.6)
     e2mmap (0.1.0)
     jaro_winkler (1.5.4)
     maruku (0.7.3)
@@ -53,6 +54,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv (~> 2.7)
   solargraph (~> 0.39.15)
 
 BUNDLED WITH
