@@ -1,8 +1,3 @@
-require 'dotenv'
-
-begin
-  Dotenv.load
-rescue StandardError
-  p 'Could not load environment variables.'
-  exit(false)
-end
+require_relative "config"
+config = Config.new
+config.load_env
