@@ -34,8 +34,9 @@ class MinifluxApi
 			})
 			response = self.class.get("/entries", custom_options)
 			response.parsed_response["entries"]
-		rescue
-			p "Could not get entries from your Miniflux server."
+		rescue => error
+			p "Could not get entries from your Miniflux server. More details to follow.", error
+			exit(false)
 		end
 	end
 
