@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'miniflux_sanity'
+
+miniflux_sanity = MinifluxSanity.new
+miniflux_sanity.fetch_entries
+miniflux_sanity.mark_entries_as_read
