@@ -4,6 +4,16 @@ A Ruby command-line utility to mark older entries as read on your Miniflux app. 
 
 ![A screenshot from my Terminal showcasing the utility in action](./assets/2020-09-10_13-21-51_miniflux-sanity.png)
 
+Motivation? If I haven't read something in the preceding month, it's unlikely I ever will. Miniflux doesn't offer an _archive_ option so we mark entries as read instead. All it really does is offer me a saner overview of "unread" items at the top.
+
+__Before:__
+
+![A screenshot from my Miniflux app showing 5031 unread items](./assets/2020-09-10_13-40-29_before.png)
+
+__After:__
+
+![A screenshot from my Miniflux app showing 516 unread items](./assets/2020-09-10_13-40-48_after.png)
+
 As is usually the case for me, I wanted to build something meaningful as I pick up Ruby again. This was a small use-case that was a good first challenge to tackle.
 
 The code is admittedly not perfect. I welcome any constructive criticism or feedback, more so if you are a Ruby enthusiast.
