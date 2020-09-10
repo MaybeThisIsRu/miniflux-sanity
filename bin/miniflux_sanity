@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'miniflux_sanity'
+require_relative '../lib/miniflux_sanity'
 
 miniflux_sanity = MinifluxSanity.new
 miniflux_sanity.fetch_entries
