@@ -1,6 +1,6 @@
 # miniflux-sanity
 
-A Ruby command-line utility to mark older entries as read on your Miniflux app. Defaults to items older than 30 days.
+A Ruby command-line utility to mark older entries as read on your Miniflux app. Defaults to items older than 30 days. Switch to ~1 day to wake up to a fresh feed every day.
 
 ![A screenshot from my Terminal showcasing the utility in action](./assets/2020-09-10_13-21-51_miniflux-sanity.png)
 
