@@ -1,5 +1,6 @@
 require "httparty"
 require "date"
+require_relative "hash"
 require_relative "utils/date"
 
 class MinifluxApi
@@ -17,11 +18,20 @@ class MinifluxApi
 		}
 	end
 
-	def get_entries(before:, offset:, status: 'unread', direction: 'asc')
+	def get_entries(before:, limit: 100, offset:, status: 'unread', direction: 'asc')
 		before = self.get_before_timestamp before: before
 
 		begin
-			response = self.class.get("/entries?status=#{status.to_s}&direction=#{direction.to_s}&before=#{before.to_s}&offset=#{offset}", @options)
+			custom_options = @options.deep_merge({
+				:query => {
+					:status => status,
+					:direction => direction,
+					:before => before,
+					:offset => offset,
+					:limit => limit
+				}
+			})
+			response = self.class.get("/entries", custom_options)
 			response.parsed_response["entries"]
 		rescue
 			p "Could not get entries from your Miniflux server."
