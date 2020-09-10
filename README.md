@@ -32,6 +32,8 @@ The code is admittedly not perfect. I welcome any constructive criticism or feed
 - [ ] Resume fetching if command crashes in between
 - [ ] If an item is starred _and_ unread, don't mark it as read.
     - This could lend itself to a nice workflow where my "to-read" can be starred while scanning through items.
+- [ ] Unit testing
+- [ ] Publish as a RubyGem for easier usage
 
 ## Goals
 
