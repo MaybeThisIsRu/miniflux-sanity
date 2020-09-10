@@ -23,7 +23,21 @@ class Cache
 			}
 		end
 	end
+
+	def remove_entries_from_file(ids:)
+		cache = self.read_from_file
+
+		ids.each do |id|
+			# TODO We could implement a search algo like binary search for performance here
+			cache["data"].each do |cached_entry|
+				if cached_entry["id"].to_i == id.to_i
+					cache["data"].delete cached_entry
+				end
+			end
 		end
+
+		self.size = cache["data"].count
+		self.write_to_file data: cache
 	end
 
 	def add_entries_to_file(data:)

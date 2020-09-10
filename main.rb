@@ -54,3 +54,25 @@ until count < limit or cache_last_fetched_today do
 	end
 end
 
+start = 0
+interval = 10
+cached_data = cache_client.read_from_file
+
+while cache_client.size != 0 do
+	stop = start + interval
+
+	# For every 10 entries, mark as read.
+	# Reduce size and remove entries accordingly in our file.
+	filtered_data = cached_data["data"][start...stop]
+	
+	ids_to_mark_read = filtered_data.map { |entry| entry["id"] }
+
+	miniflux.mark_entries_read ids: ids_to_mark_read
+
+	cache_client.size -= interval
+	cache_client.remove_entries_from_file ids: ids_to_mark_read
+
+	start += interval
+
+	p "#{cache_client.size} entries left to be mark as read."
+end
