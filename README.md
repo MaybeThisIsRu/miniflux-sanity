@@ -1,20 +1,12 @@
 # miniflux-sanity
 
-A Ruby command-line utility to mark older entries as read on your Miniflux app. Defaults to items older than 30 days. Switch to ~1 day to wake up to a fresh feed every day.
+A Ruby command-line utility to mark older entries as read on your Miniflux app. Defaults to items older than a conservative 30 days. Switch to ~1 day and run daily to wake up to a fresh feed.
 
 ![A screenshot from my Terminal showcasing the utility in action](./assets/miniflux-sanity_cli_v0.2.0.png)
 
-__Before:__
-
-![A screenshot from my Miniflux app showing 5031 unread items](./assets/miniflux-sanity_before.png)
-
-__After:__
-
-![A screenshot from my Miniflux app showing 516 unread items](./assets/miniflux-sanity_after.png)
-
 ## Motivation
 
-If I haven't read something in the preceding month, it's unlikely I ever will. Miniflux doesn't offer an _archive_ option so we mark entries as read instead. All it really does is offer me a saner overview of "unread" items at the top.
+If I haven't read something in the preceding week, it's unlikely I ever will. Miniflux doesn't offer an _archive_ option so we mark entries as read instead. All it really does is offer me a saner overview of "unread" items at the top.
 
 As is usually the case for me, I wanted to build something meaningful as I pick up Ruby again. This was a small use-case that was a good first challenge to tackle.
 
@@ -24,7 +16,7 @@ The code is admittedly not perfect. I welcome any constructive criticism or feed
 
 - Uses token authentication
 - Supports cloud and self-hosted Miniflux apps
-- Configure number of days before which to mark items as read
+- Configurable number of days before which to mark items as read
 - Resumes marking as read if interrupted
 
 ## Usage
