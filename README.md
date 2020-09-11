@@ -29,10 +29,9 @@ All command line options can be viewed by running `miniflux_sanity --help`.
 
 ## To-do
 
-- [ ] Publish as a RubyGem for easier usage (see the [feature/rubygem](https://github.com/hirusi/miniflux-sanity/tree/feature/rubygem) branch)
 - [ ] Unit testing
 - [ ] Resume fetching if command crashes in between
-- [ ] If an item is starred _and_ unread, don't mark it as read.
+- [ ] Optionally, if an item is starred _and_ unread, don't mark it as read.
     - This could lend itself to a nice workflow where my "to-read" can be starred while scanning through items.
 
 ## Goals
