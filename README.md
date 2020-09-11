@@ -45,6 +45,12 @@ The code is admittedly not perfect. I welcome any constructive criticism or feed
 
 ## Usage
 
+You must have Ruby available on your system/shell.
+
+Install by running `gem install miniflux_sanity`. All command line options can be viewed by running `miniflux_sanity --help`.
+
+## Development
+
 The Ruby version is specified in `.ruby-version`. `rbenv` is able to read and set the correct local version in your shell.
 
 - `git clone git@github.com:hirusi/miniflux-sanity.git`
@@ -54,7 +60,5 @@ The Ruby version is specified in `.ruby-version`. `rbenv` is able to read and se
     - You'll need a token from your Miniflux app under `Settings > API Keys -> Create a new API key`
 - Install the dependencies: `bundle`
 - Run the utility: `bundle exec ruby main.rb`
-    - The first run could likely take a while; please be patient!
-- Optionally, set up a CRON job to run daily :)
 
 If you have a Docker setup to contribute using Alpine OS as its base, I'd be very happy to merge your PR.
