@@ -56,7 +56,7 @@ class Cache
 		self.last_fetched = Date.today
 		self.write_to_file data: cache
 
-		p "#{new_entries_count} new entries were written to cache."
+		puts "#{new_entries_count} new entries were written to cache."
 	end
 
 	def write_to_file(data:)

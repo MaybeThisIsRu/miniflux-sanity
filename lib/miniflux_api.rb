@@ -5,12 +5,11 @@ require_relative "utils/date"
 
 class MinifluxApi
 	include HTTParty
-	base_uri "#{ENV["MINIFLUX_HOST"]}/v1/"
 	maintain_method_across_redirects true
 
-	include DateUtils
+	def initialize(host:, token:)
+		self.class.base_uri host
 
-	def initialize(token:)
 		@options = {
 			:headers => {
 				"X-Auth-Token": token,
@@ -20,8 +19,6 @@ class MinifluxApi
 	end
 
 	def get_entries(before:, limit: 100, offset:, status: 'unread', direction: 'asc')
-		before = self.get_before_timestamp before: before
-
 		begin
 			custom_options = @options.deep_merge({
 				:query => {
@@ -33,10 +30,16 @@ class MinifluxApi
 				}
 			})
 			response = self.class.get("/entries", custom_options)
-			response.parsed_response["entries"]
+			response_code = response.code.to_i
+
+			if response_code >= 400
+				raise response.parsed_response
+			else
+				response.parsed_response["entries"]
+			end
 		rescue => error
-			p "Could not get entries from your Miniflux server. More details to follow.", error
-			exit(false)
+			puts "Could not get entries from your Miniflux server. More details to follow.", error
+			exit
 		end
 	end
 
@@ -55,9 +58,9 @@ class MinifluxApi
 		response = self.class.put("/entries", new_options)
 
 		if response.code.to_i == 204
-			p "Marked entries with ID #{ids.join ", "} as read."
+			puts "Marked entries with ID #{ids.join ", "} as read."
 		else
-			p "Could not mark entries with ID #{ids.join ", "} as read"
+			puts "Could not mark entries with ID #{ids.join ", "} as read"
 			exit(false)
 		end
 

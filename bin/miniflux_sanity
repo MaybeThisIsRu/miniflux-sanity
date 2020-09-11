@@ -1,7 +1,53 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/miniflux_sanity'
+require 'miniflux_sanity'
+require 'rationalist'
 
-miniflux_sanity = MinifluxSanity.new
+argv = Rationalist.parse(ARGV, **{
+    :string => [
+        'host',
+        'token'
+    ],
+    :default => {
+        :host => 'https://reader.miniflux.app/',
+        :days => 30
+    }
+})
+
+if argv[:help]
+    puts "miniflux_sanity is a command line utility to mark items older than specified time as read in Miniflux."
+    puts ""
+    puts "You may pass in the following arguments:"
+    puts ""
+    puts "--version     show currently installed version"
+    puts ""
+    puts "--help        show this help message"
+    puts ""
+    puts "--host        your miniflux host (optional)
+              default: https://reader.miniflux.app/"
+    puts ""
+    puts "--token       your miniflux API token (required)
+              generate from Settings > API Keys > Create a new API key"
+    puts ""
+    puts "--days        number of days before which to mark items as read (optional)
+              default: 30
+              example: 7"
+    exit true
+end
+
+if argv[:version]
+    puts "miniflux_sanity v0.2.0"
+    exit true
+end
+
+if argv[:token].nil?
+    puts "You must at least specify the API token!"
+    puts ""
+    puts "--token  (required) your miniflux API token
+                    generate from Settings > API Keys > Create a new API key"
+    exit
+end
+
+miniflux_sanity = MinifluxSanity.new token: argv[:token], host: argv[:host], days: argv[:days]
 miniflux_sanity.fetch_entries
 miniflux_sanity.mark_entries_as_read
