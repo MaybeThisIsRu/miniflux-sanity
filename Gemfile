@@ -15,3 +15,5 @@ gem "httparty", "~> 0.18.1"
 gem "rake", "~> 13.0"
 
 gem "rationalist", "~> 2.0"
+
+gem "minitest", "~> 5.14"
