@@ -23,7 +23,7 @@ class MinifluxSanity
 	end
 
 	def is_older_than_cutoff?(published_at:)
-		if Date.parse(published_at).to_time.to_i > @@config[:cutoff_timestamp]
+		if Date.parse(published_at).to_time.to_i > @@config.cutoff_timestamp
 			false
 		else
 			true
