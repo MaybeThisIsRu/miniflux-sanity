@@ -7,7 +7,7 @@ class MinifluxApi
 	maintain_method_across_redirects true
 
 	def initialize(host:, token:)
-		self.class.base_uri host
+		self.class.base_uri "#{host}/v1/"
 
 		@options = {
 			:headers => {
