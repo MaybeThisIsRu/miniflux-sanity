@@ -27,6 +27,14 @@ The code is admittedly not perfect. I welcome any constructive criticism or feed
 - Configure number of days before which to mark items as read
 - Resumes marking as read if interrupted
 
+## Usage
+
+You must have Ruby available on your system/shell.
+
+Install by running `gem install miniflux_sanity`.
+
+All command line options can be viewed by running `miniflux_sanity --help`.
+
 ## To-do
 
 - [ ] Publish as a RubyGem for easier usage (see the [feature/rubygem](https://github.com/hirusi/miniflux-sanity/tree/feature/rubygem) branch)
@@ -42,12 +50,6 @@ The code is admittedly not perfect. I welcome any constructive criticism or feed
 - Work with `JSON`
 - Work with Ruby's `File` API
 - Interact with an API using an HTTP library
-
-## Usage
-
-You must have Ruby available on your system/shell.
-
-Install by running `gem install miniflux_sanity`. All command line options can be viewed by running `miniflux_sanity --help`.
 
 ## Development
 
