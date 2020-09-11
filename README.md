@@ -56,10 +56,10 @@ The Ruby version is specified in `.ruby-version`. `rbenv` is able to read and se
 
 - `git clone git@github.com:hirusi/miniflux-sanity.git`
 - `cd miniflux-sanity`
-- `cp .env.template .env`
-- Update the `.env` file as required.
-    - You'll need a token from your Miniflux app under `Settings > API Keys -> Create a new API key`
 - Install the dependencies: `bundle`
-- Run the utility: `bundle exec ruby main.rb`
+- After making desired changes, install locally without publishing to RubyGems: `bundle exec rake install`
+    - I don't know a better workflow at the moment, sorry. 🤷‍♀️
+- Run the utility: `miniflux_sanity`
+    - - You'll need a token from your Miniflux app under `Settings > API Keys -> Create a new API key`
 
 If you have a Docker setup to contribute using Alpine OS as its base, I'd be very happy to merge your PR.
