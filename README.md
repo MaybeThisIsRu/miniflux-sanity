@@ -2,7 +2,9 @@
 
 ![Download counter for the RubyGem](https://img.shields.io/gem/dtv/miniflux_sanity)
 
-A Ruby command-line utility to mark older entries as read on your Miniflux app. Defaults to items older than a conservative 30 days. Switch to ~1 day and run daily to wake up to a fresh feed.
+👩‍💻 A Ruby command-line utility to mark older entries as read on your Miniflux app. Defaults to items older than a conservative 30 days. Switch to ~1 day and run daily to wake up to a fresh feed.
+
+⭐ Star the project if you like it and want to send some internet support. 🥰
 
 ![A screenshot from my Terminal showcasing the utility in action](./assets/miniflux-sanity_cli_v0.2.0.png)
 
