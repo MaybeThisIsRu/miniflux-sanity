@@ -2,7 +2,6 @@ require "date"
 require_relative "config"
 require_relative "miniflux_api"
 require_relative "utils/cache"
-require_relative "utils/date"
 
 class MinifluxSanity
 	def initialize(token:, host:, days:)

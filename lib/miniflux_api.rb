@@ -1,7 +1,6 @@
 require "httparty"
 require "date"
 require_relative "hash"
-require_relative "utils/date"
 
 class MinifluxApi
 	include HTTParty
