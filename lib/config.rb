@@ -10,14 +10,4 @@ class Config
 			:token => token
 		}
 	end
-	
-	def load_env
-		require 'dotenv'
-		begin
-			Dotenv.load
-			rescue
-			p 'Could not load environment variables.'
-			exit(false)
-		end
-	end
 end
