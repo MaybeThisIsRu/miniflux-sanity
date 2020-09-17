@@ -25,7 +25,7 @@ The code is admittedly not perfect. I welcome any constructive criticism or feed
 - Configurable number of days before which to mark items as read
 - Resumes marking as read if interrupted
 
-Note: A common concern might be if this muddies your actual read history. Thanks to the way Miniflux works, this surprisingly does not meddle with _your_ history. It only marks items as read. That is it!
+~Note: A common concern might be if this muddies your actual read history. Thanks to the way Miniflux works, this surprisingly does not meddle with _your_ history. It only marks items as read. That is it!~ This was untrue, my apologies!
 
 ## Usage
 
