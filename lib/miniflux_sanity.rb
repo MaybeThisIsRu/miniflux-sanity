@@ -33,6 +33,7 @@ class MinifluxSanity
 	def fetch_entries
 		if self.last_fetched_today?
 			puts "Last run was today, skipping fetch."
+			exit
 		else
 			puts "Now collecting all unread entries before the specified date."
 		end
@@ -42,7 +43,7 @@ class MinifluxSanity
 		size = 0
 		limit = 250
 		count = limit
-		until count < limit or self.last_fetched_today? do
+		until count < limit do
 
 			entries = @@miniflux_client.get_entries before: @@config.cutoff_timestamp, offset: size, limit: limit
 
