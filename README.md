@@ -64,3 +64,9 @@ The Ruby version is specified in `.ruby-version`. `rbenv` is able to read and se
 - Run the utility: `bundle exec ruby main.rb`
 
 If you have a Docker setup to contribute using Alpine OS as its base, I'd be very happy to merge your PR.
+
+## Publishing
+
+- Test changes locally with an install: `bundle exec rake install`
+- Update version in gemspec, commit
+- Publish when happy: `bundle exec rake release`
