@@ -52,14 +52,8 @@ class MinifluxSanity
 				exit true
 			end
 		
-			entries.filter do |entry|
-				# Just for some extra resilience, we make sure to check the published_at date before we filter it. This would be helpful where the Miniflux API itself has a bug with its before filter, for example.
-				unless is_older_than_cutoff? published_at: entry["published_at"]
-					true
-				else
-					false
-				end
-			end
+			# TODO This *should* be a bang-style method based on how Ruby is written. It should modify the entries list itself. Probably if we modeled an Entry and Entries... we could add this as a method on the Entries Model.
+			entries = self.filter_before_cutoff entries: entries
 		
 			count = entries.count
 			size = size + count
@@ -73,6 +67,11 @@ class MinifluxSanity
 				puts "Fetching more..."
 			end
 		end
+	end
+
+	def filter_before_cutoff(entries:)
+		# Just for some extra resilience, we make sure to check the published_at date before we filter it. This would be helpful where the Miniflux API itself has a bug with its before filter, for example.
+		entries.filter { |entry| is_older_than_cutoff? published_at: entry["published_at"] }
 	end
 
 	def mark_entries_as_read
