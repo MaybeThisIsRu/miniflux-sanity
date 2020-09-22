@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
     s.name                        = 'miniflux_sanity'
-    s.version                     = '0.2.0'
+    s.version                     = '0.2.1'
     s.required_ruby_version       = Gem::Requirement.new(">= 2.7.1")
-    s.date                        = '2020-09-11'
+    s.date                        = '2020-09-23'
     s.summary                     = "Mark items older than specified time as read in Miniflux."
     s.description                 = "Command line utility to mark items older than specified time as read in Miniflux."
     s.authors                     = ["hirusi"]
