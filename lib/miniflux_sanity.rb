@@ -18,7 +18,7 @@ class MinifluxSanity
 		if @@cache_client.last_fetched.nil?
 			false
 		else
-			Date.parse(@@cache_client.last_fetched) == Date.today
+			Date.parse(@@cache_client.last_fetched.to_s) == Date.today
 		end
 	end
 
