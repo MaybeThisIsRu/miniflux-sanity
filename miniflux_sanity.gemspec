@@ -21,4 +21,11 @@ Gem::Specification.new do |s|
     s.bindir                      = "bin"
     s.executables                 = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
     s.require_paths               = ["lib"]
+
+    s.add_development_dependency "rake", "~> 13.0"
+    s.add_development_dependency "solargraph", "~> 0.39.15"
+
+    s.add_dependency "dotenv", "~> 2.7"
+    s.add_dependency "httparty", "~> 0.18.1"
+    s.add_dependency "rationalist", "~> 2.0"
   end
